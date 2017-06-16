@@ -1,0 +1,2 @@
+# SimpleLogisticsManagementSystem
+基于SSH整合开发的B/S系统
