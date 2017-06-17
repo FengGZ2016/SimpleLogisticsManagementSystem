@@ -52,7 +52,7 @@
 				</column>
 			</key>
 			<!-- 一对多 -->
-			<one-to-many />
+			<one-to-many class="entity.Stockin"/>
 		</set>
 
 		<set name="stockorders" table="stockorder" inverse="true" lazy="true"
@@ -63,7 +63,7 @@
 				</column>
 			</key>
 			<!-- 一对多 -->
-			<one-to-many/>
+			<one-to-many class="entity.Stockorder"/>
 			</set>
 	</class>
 </hibernate-mapping>
