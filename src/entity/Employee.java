@@ -73,6 +73,9 @@ public class Employee {
 	}
 
 	public void setBirthday(String birthday) {
+		if(null!=birthday&&birthday.length()>=10){
+			birthday=birthday.substring(0,10);
+		}
 		this.birthday = birthday;
 	}
 

@@ -14,37 +14,54 @@
 		</id>
 		<property name="code" type="string">
 			<column name="code" length="3" not-null="true">
+				<!-- comment:注释 -->
 				<comment>客户编号</comment>
 			</column>
 		</property>
 		<property name="name" type="string">
 			<column name="name" length="50" not-null="true">
+				<!-- comment:注释 -->
 				<comment>客户名称</comment>
 			</column>
 		</property>
 		<property name="address" type="string">
 			<column name="address" length="50" not-null="true">
+				<!-- comment:注释 -->
 				<comment>地址</comment>
 			</column>
 		</property>
 		<property name="telephone" type="string">
 			<column name="telephone" length="30" not-null="true">
+				<!-- comment:注释 -->
 				<comment>电话</comment>
 			</column>
 		</property>
 		<property name="email" type="string">
 			<column name="email" length="30" not-null="true">
+				<!-- comment:注释 -->
 				<comment>电子邮箱</comment>
 			</column>
 		</property>
+
 		<set name="stockins" table="stockin" inverse="true" lazy="true"
 			fetch="select" cascade="all-delete-orphan">
 			<key>
-			<column name="clientid" not-null="true">
-			<comment>进货单</comment>
-			</column>
+				<column name="clientid" not-null="true">
+					<!-- comment:注释 -->
+					<comment>进货单</comment>
+				</column>
 			</key>
 			<!-- 一对多 -->
+			<one-to-many />
+		</set>
+
+		<set name="stockorders" table="stockorder" inverse="true" lazy="true"
+			fetch="select" cascade="all-delete-orphan">
+			<key>
+				<column name="clientid" not-null="true">
+				<comment>订货单</comment>
+				</column>
+			</key>
 			<one-to-many/>
 			</set>
 	</class>
