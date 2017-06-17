@@ -8,22 +8,26 @@
 			<column name="id" />
 			<generator class="identity" />
 		</id>
+		<!-- 多对一 -->
 		<many-to-one name="merchandise" class="Merchandise"
 			fetch="join">
 			<column name="merchandiseid" not-null="true">
 				<comment>商品编号</comment>
 			</column>
 		</many-to-one>
+		<!-- 多对一 -->
 		<many-to-one name="client" class="Client" fetch="join">
 			<column name="clientid" not-null="true">
 				<comment>客户编号</comment>
 			</column>
 		</many-to-one>
+		<!-- 多对一 -->
 		<many-to-one name="employee" class="Employee" fetch="join">
 			<column name="employeeid" not-null="true">
 				<comment>员工编号</comment>
 			</column>
 		</many-to-one>
+		<!--  -->
 		<property name="code" type="string">
 			<column name="code" length="11" not-null="true">
 				<comment>订货单编号</comment>
