@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+/**
+ * @author 国富小哥
+ * @Create by Administrator
+ * @DateTime 2017年6月17日 上午9:49:14
+ * 客户的实体类
+ */
 public class Client implements Serializable{
 	private Integer id;// 客户ID
 	private String code;// 客户编号
