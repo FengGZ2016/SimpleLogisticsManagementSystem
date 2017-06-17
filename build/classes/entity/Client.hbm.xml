@@ -62,6 +62,7 @@
 				<comment>订货单</comment>
 				</column>
 			</key>
+			<!-- 一对多 -->
 			<one-to-many/>
 			</set>
 	</class>
