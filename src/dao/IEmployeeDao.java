@@ -9,5 +9,7 @@ public interface IEmployeeDao {
 		public List<Employee> findEmployee(Employee employee);
 		//增加员工档案
 		public void saveEmployee(Employee employee);
+		// 更新员工档案
+		public void updateEmployee(Employee employee);
 
 }

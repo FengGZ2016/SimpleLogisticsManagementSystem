@@ -34,4 +34,12 @@ public class EmployeeService implements IEmployeeService{
 	public void saveEmployee(Employee employee) {
 		employeeDao.saveEmployee(employee);
 	}
+
+	/**
+	 * 更新员工数据
+	 * */
+	@Override
+	public void updataEmployee(Employee employee) {
+		employeeDao.updateEmployee(employee);
+	}
 }

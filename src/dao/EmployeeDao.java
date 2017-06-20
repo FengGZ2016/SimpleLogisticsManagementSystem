@@ -5,6 +5,7 @@ import java.util.List;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
 import entity.Employee;
@@ -52,6 +53,21 @@ public class EmployeeDao extends HibernateDaoSupport implements IEmployeeDao{
 	@Override
 	public void saveEmployee(Employee employee) {
 		this.getHibernateTemplate().save(employee);
+	}
+
+	@Override
+	public void updateEmployee(Employee employee) {
+		HibernateTemplate template=this.getHibernateTemplate();
+		Integer employeeId=employee.getId();
+		//载入已经被持久化了的对象然后再进行修改
+		Employee em=(Employee) template.load(Employee.class, Integer.valueOf(employeeId));
+		em.setName(employee.getName());
+		em.setEmail(employee.getEmail());
+		em.setSex(employee.isSex());
+		em.setBirthday(employee.getBirthday());
+		em.setTelephone(employee.getTelephone());
+		//更新
+		template.update(em);
 	}
 
 }

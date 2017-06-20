@@ -72,5 +72,15 @@ public class EmployeeAction extends ActionSupport{
 		return "finish";
 	}
 	
+	/**
+	 * 更新员工档案
+	 * */
+	public String updateEmployee(){
+		employeeService.updataEmployee(employee);
+		finish_Url = "employeeAction!findEmployee.action";
+		employee = null;
+		return "finish";
+	}
+	
 	
 }
