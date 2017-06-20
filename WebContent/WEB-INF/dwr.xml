@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE dwr PUBLIC
+    "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"
+    "http://getahead.org/dwr/dwr30.dtd">
+
+<dwr>
+	<allow>
+		<!-- 员工编码重复验证 -->
+		<create creator="spring" javascript="employeeAction">
+			<param name="beanName" value="employeeAction" />
+			<include method="findEmployeeByCode" />
+		</create>
+		
+		<!-- 商品编码重复验证 -->
+		<create creator="spring" javascript="merchandiseAction">
+			<param name="beanName" value="merchandiseAction" />
+			<include method="findMerchandiseByCode" />
+		</create>
+		
+		<!-- 客户编码重复验证 -->
+		<create creator="spring" javascript="clientAction">
+			<param name="beanName" value="clientAction" />
+			<include method="findClientByCode" />
+		</create>
+		
+		<!-- 进货单编码重复验证 -->
+		<create creator="spring" javascript="stockinAction">
+			<param name="beanName" value="stockinAction" />
+			<include method="findStockinByCode"/>
+			<include method="findMerchandisePriceById"/>
+		</create>
+		
+		<!-- 订货单编码重复验证 -->
+		<create creator="spring" javascript="stockorderAction">
+			<param name="beanName" value="stockorderAction" />
+			<include method="findStockorderByCode"/>
+		</create>
+	</allow>
+</dwr>
+

@@ -62,5 +62,15 @@ public class EmployeeAction extends ActionSupport{
 		employeeService=(IEmployeeService) employeeService.findEmployee(employee);
 	}
 	
+	/**
+	 * 增加员工档案
+	 * */
+	public String saveEmployee(){
+		employeeService.saveEmployee(employee);
+		finish_Url = "employeeAction!findEmployee.action";
+		employee = null;
+		return "finish";
+	}
+	
 	
 }

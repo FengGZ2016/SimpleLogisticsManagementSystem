@@ -46,4 +46,12 @@ public class EmployeeDao extends HibernateDaoSupport implements IEmployeeDao{
 			
 	}
 
+	/**
+	 * 增加员工档案
+	 * */
+	@Override
+	public void saveEmployee(Employee employee) {
+		this.getHibernateTemplate().save(employee);
+	}
+
 }

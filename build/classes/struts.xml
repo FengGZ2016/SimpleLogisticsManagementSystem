@@ -5,6 +5,17 @@
 
 	<package name="default" extends="struts-default">
 		
-		
+			<!-- 全局转向 -->
+		<global-results>
+			<result name="error">/error.jsp</result>
+			<result name="finish">/finish.jsp</result>
+		</global-results>
+
+		<!-- 全局异常转向 -->
+		<global-exception-mappings>
+			<exception-mapping result="error"
+				exception="java.lang.Exception">
+			</exception-mapping>
+		</global-exception-mappings>
 	</package>
 </struts>
