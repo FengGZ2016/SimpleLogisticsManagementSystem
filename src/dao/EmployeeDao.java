@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
@@ -68,6 +69,22 @@ public class EmployeeDao extends HibernateDaoSupport implements IEmployeeDao{
 		em.setTelephone(employee.getTelephone());
 		//更新
 		template.update(em);
+	}
+
+	/**
+	 * 删除员工档案(可批量删除)
+	 * */
+	@Override
+	public void deleteEmployee(String[] employeeId) {
+		List<Employee> employees=new ArrayList<>();
+		HibernateTemplate template=this.getHibernateTemplate();
+		//遍历传进来的id
+		for(String emid:employeeId){
+			Employee em=(Employee) template.load(Employee.class, emid);
+			employees.add(em);
+		}
+		//批量删除
+		template.deleteAll(employees);
 	}
 
 }

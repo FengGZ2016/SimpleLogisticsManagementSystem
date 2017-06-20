@@ -82,5 +82,15 @@ public class EmployeeAction extends ActionSupport{
 		return "finish";
 	}
 	
+	/**
+	 * 删除员工档案
+	 * */
+	public String deleteEmployee(){
+		employeeService.deleteEmployee(employeeId);
+		// 删除成功页面显示完后跳转的页面，显示Employee表中所有信息
+		finish_Url = "employeeAction!findEmployee.action";
+		return "finish";
+	}
+	
 	
 }

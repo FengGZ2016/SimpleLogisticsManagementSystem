@@ -12,4 +12,6 @@ public interface IEmployeeService {
 	public void saveEmployee(Employee employee);
 	//更新员工数据
 	public void updataEmployee(Employee employee);
+	// 删除员工档案
+	public void deleteEmployee(String[] employeeId);
 }

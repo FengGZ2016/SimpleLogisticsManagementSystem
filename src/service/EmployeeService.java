@@ -36,10 +36,18 @@ public class EmployeeService implements IEmployeeService{
 	}
 
 	/**
-	 * 更新员工数据
+	 * 更新员工档案
 	 * */
 	@Override
 	public void updataEmployee(Employee employee) {
 		employeeDao.updateEmployee(employee);
+	}
+
+	/**
+	 * 删除员工档案
+	 * */
+	@Override
+	public void deleteEmployee(String[] employeeId) {
+		employeeDao.deleteEmployee(employeeId);
 	}
 }

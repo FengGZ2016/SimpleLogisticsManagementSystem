@@ -11,5 +11,7 @@ public interface IEmployeeDao {
 		public void saveEmployee(Employee employee);
 		// 更新员工档案
 		public void updateEmployee(Employee employee);
+		// 删除员工档案
+		public void deleteEmployee(String[] employeeId);
 
 }
