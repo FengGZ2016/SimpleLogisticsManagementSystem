@@ -67,6 +67,14 @@ public class MerchandiseAction extends ActionSupport{
 		merchandise = null;
 		return "finish";
 	}
+	
+	/**
+	 * ≤È—Ø…Ã∆∑
+	 * */
+	public String findMerchandise(){
+		merchandises = merchandiseService.findMerchandise(merchandise);
+		return "findMerchandise";
+	}
 
 
 }

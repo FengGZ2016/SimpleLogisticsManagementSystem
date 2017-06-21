@@ -1,5 +1,7 @@
 package service;
 
+import java.util.List;
+
 import entity.Merchandise;
 
 public class MerchandiseService implements IMerchandiseService{
@@ -25,6 +27,14 @@ public class MerchandiseService implements IMerchandiseService{
 	@Override
 	public void updateMerchandise(Merchandise merchandise) {
 		merchandiseService.updateMerchandise(merchandise);
+	}
+
+	/**
+	 * ≤È—Ø…Ã∆∑
+	 * */
+	@Override
+	public List<Merchandise> findMerchandise(Merchandise merchandise) {
+		return merchandiseService.findMerchandise(merchandise);
 	}
 
 }

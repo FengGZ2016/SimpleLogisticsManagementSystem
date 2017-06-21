@@ -1,5 +1,10 @@
 package dao;
 
+import java.util.List;
+
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate3.HibernateTemplate;
 import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
 
@@ -29,6 +34,25 @@ public class MerchandiseDao extends HibernateDaoSupport implements IMerchandiseD
 		perstMerchandise.setPrice(merchandise.getPrice());// 价格
 		// 更新
 		hibernateTemplate.update(perstMerchandise);
+	}
+
+	/**
+	 * 查询商品档案
+	 * */
+	@Override
+	public List<Merchandise> findMerchandise(Merchandise merchandise) {
+		//对象查找条件
+		DetachedCriteria criteria=DetachedCriteria.forClass(Merchandise.class);
+		if(merchandise!=null){
+			if(merchandise.getId()!=null&&String.valueOf(merchandise.getId()).trim().length()>0){
+				criteria.add(Restrictions.eq("id", merchandise.getId()));
+			}if(merchandise.getCode()!=null&&String.valueOf(merchandise.getCode()).trim().length()>0){
+				criteria.add(Restrictions.eq("code", merchandise.getCode()));
+			}if(merchandise.getName()!=null&&String.valueOf(merchandise.getName()).trim().length()>0){
+				criteria.add(Restrictions.like("name", merchandise.getName()),MatchMode.ANYWHERE);
+			}
+		}
+		return this.getHibernateTemplate().findByCriteria(criteria);
 	}
 	
 
