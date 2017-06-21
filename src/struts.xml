@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="GBK"?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd">
 <struts>
-	<constant name="struts.objectFactory" value="spring" />
+	<!-- 常量配置 -->
+	<constant name="struts.objectFactory" value="spring" /> 
 
-	<package name="default" extends="struts-default">
-		
+	<!-- 包配置 -->
+		<package name="default" extends="struts-default">
 			<!-- 全局转向 -->
 		<global-results>
 			<result name="error">/error.jsp</result>
@@ -17,5 +18,19 @@
 				exception="java.lang.Exception">
 			</exception-mapping>
 		</global-exception-mappings>
+		
+		<!-- 员工管理Action配置 -->
+		<action name="employeeAction" class="employeeAction">
+			<result name="findEmployee">/employee.jsp</result>
+			<result name="updateEmployee">/updateEmployee.jsp</result>
+		</action>
+
+		<!-- 商品管理Action配置 -->
+		<action name="merchandiseAction" class="merchandiseAction">
+			<result name="findMerchandise">/merchandise.jsp</result>
+			<result name="updateMerchandise">
+				/updateMerchandise.jsp
+			</result>
+		</action>
 	</package>
 </struts>
