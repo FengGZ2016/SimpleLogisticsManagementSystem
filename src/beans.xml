@@ -35,6 +35,19 @@
 		<property name="sessionFactory" ref="sessionFactory" />
 	</bean>
 
+	<!-- 商品档案配置 -->
+	<bean name="merchandiseAction"
+		class="action.MerchandiseAction">
+		<property name="merchandiseService" ref="merchandiseService" />
+	</bean>
+	<bean name="merchandiseService"
+		class="service.MerchandiseService">
+		<property name="merchandiseDao" ref="merchandiseDao"></property>
+	</bean>
+	<bean name="merchandiseDao"
+		class="dao.MerchandiseDao">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
 	
 
 </beans>

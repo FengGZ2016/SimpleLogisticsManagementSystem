@@ -56,6 +56,17 @@ public class MerchandiseAction extends ActionSupport{
 		merchandise = null;
 		return "finish";
 	}
+	
+	/**
+	 * 更新商品
+	 * */
+	public String updateMerchandise(){
+		merchandiseService.updateMerchandise(merchandise);
+		// 添加成功页面显示完后跳转的页面，显示Merchandise表中所有信息
+		finish_Url = "merchandiseAction!findMerchandise.action";
+		merchandise = null;
+		return "finish";
+	}
 
 
 }

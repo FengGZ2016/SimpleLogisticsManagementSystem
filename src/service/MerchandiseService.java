@@ -19,4 +19,12 @@ public class MerchandiseService implements IMerchandiseService{
 		merchandiseService.saveMerchandise(merchandise);
 	}
 
+	/**
+	 * 更新商品
+	 * */
+	@Override
+	public void updateMerchandise(Merchandise merchandise) {
+		merchandiseService.updateMerchandise(merchandise);
+	}
+
 }
