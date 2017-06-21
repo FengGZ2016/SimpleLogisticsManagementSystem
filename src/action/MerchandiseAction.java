@@ -93,5 +93,23 @@ public class MerchandiseAction extends ActionSupport {
 		finish_Url = "merchandiseAction!findMerchandise.action";
 		return "finish";
 	}
+	
+	/**
+	 * 商品档案更新前查询
+	 */
+	public String preUpdateMerchandise() {
+		merchandise = merchandiseService.findMerchandise(merchandise).get(0);
+		return "updateMerchandise";
+	}
 
+	
+	/**
+	 * 根据编号查询商品档案
+	 */
+	public int findMerchandiseByCode(String code) {
+		merchandise = new Merchandise();
+		merchandise.setCode(code);
+		merchandises = merchandiseService.findMerchandise(merchandise);
+		return merchandises.size();
+	}
 }

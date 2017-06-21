@@ -92,5 +92,24 @@ public class EmployeeAction extends ActionSupport{
 		return "finish";
 	}
 	
+	/**
+	 * 员工档案更新前查询
+	 */
+	public String preUpdateEmployee() {
+		employee = employeeService.findEmployee(employee).get(0);
+		return "updateEmployee";
+	}
+	
+	/**
+	 * 根据编号查询员工档案
+	 */
+	public int findEmployeeByCode(String code) {
+		employee = new Employee();
+		employee.setCode(code);
+		employees = employeeService.findEmployee(employee);
+		return employees.size();
+	}
+
+	
 	
 }
