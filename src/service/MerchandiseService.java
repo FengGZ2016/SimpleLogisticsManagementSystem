@@ -37,4 +37,13 @@ public class MerchandiseService implements IMerchandiseService{
 		return merchandiseService.findMerchandise(merchandise);
 	}
 
+	
+	/**
+	 * É¾³ıÉÌÆ·
+	 * */
+	@Override
+	public void deleteMerchandise(String[] merchandiseId) {
+		merchandiseService.deleteMerchandise(merchandiseId);
+	}
+
 }

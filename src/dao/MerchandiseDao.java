@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.criterion.DetachedCriteria;
@@ -53,6 +54,22 @@ public class MerchandiseDao extends HibernateDaoSupport implements IMerchandiseD
 			}
 		}
 		return this.getHibernateTemplate().findByCriteria(criteria);
+	}
+
+	/**
+	 * 删除商品
+	 * */
+	@Override
+	public void deleteMerchandise(String[] merchandiseId) {
+		List<Merchandise> entities = new ArrayList<Merchandise>();
+		HibernateTemplate hibernateTemplate = this.getHibernateTemplate();
+		for (String mid : merchandiseId) {
+			Merchandise merchandise=(Merchandise) hibernateTemplate.load(Merchandise.class, Integer.valueOf(mid));
+			entities.add(merchandise);
+		}
+		// 批量删除
+		hibernateTemplate.deleteAll(entities);
+		
 	}
 	
 

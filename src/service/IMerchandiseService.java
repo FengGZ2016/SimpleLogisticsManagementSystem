@@ -11,5 +11,7 @@ public interface IMerchandiseService {
 			public void updateMerchandise(Merchandise merchandise);
 			// 商品档案查询
 			public List<Merchandise> findMerchandise(Merchandise merchandise);
+			// 删除商品档案
+			public void deleteMerchandise(String[] merchandiseId);
 			
 }
